@@ -22,11 +22,11 @@ namespace FloatImages
         private List<string> imageList;
         private FrmPrint frmPrint;
 
-        public List<FrmImage> frmImages;        
+        public List<FrmImage> frmImages;
 
         public FrmPrincipal()
         {
-            InitializeComponent();            
+            InitializeComponent();
         }
 
         private void FrmPrincipal_Load(object sender, EventArgs e)
@@ -104,5 +104,29 @@ namespace FloatImages
         }
 
         #endregion
+
+        private void FrmPrincipal_Resize(object sender, EventArgs e)
+        {
+            if (FormWindowState.Minimized == this.WindowState)
+            {
+                ntfIcon.Visible = true;
+                this.Hide();
+            }
+            else if (FormWindowState.Normal == this.WindowState)
+            {
+                ntfIcon.Visible = false;
+            }
+        }
+
+        private void ntfIcon_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            this.Show();
+            this.WindowState = FormWindowState.Normal;
+        }
+
+        private void ckbShowImagesTaskbar_CheckedChanged(object sender, EventArgs e)
+        {
+            frmImages.ForEach(frm => frm.ShowInTaskbar = (sender as CheckBox).Checked);
+        }
     }
 }

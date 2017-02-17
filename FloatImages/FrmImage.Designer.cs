@@ -51,6 +51,7 @@
             this.Controls.Add(this.imgContainer);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "FrmImage";
+            this.ShowInTaskbar = false;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmImage_FormClosing);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmImage_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.imgContainer)).EndInit();
