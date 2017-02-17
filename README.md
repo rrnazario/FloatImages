@@ -1,5 +1,5 @@
 # FloatImages v0.1
-A crazy snapshot handler. Project developed in C# Windows Forms.
+A crazy screenshot handler. Project developed in C# Windows Forms.
 
 # To use:
 
