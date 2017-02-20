@@ -5,6 +5,7 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.Collections.Generic;
 using System.IO;
+using System.Configuration;
 
 namespace FloatImages
 {
@@ -22,7 +23,7 @@ namespace FloatImages
         private List<string> imageList;
         private FrmPrint frmPrint;
 
-        public List<FrmImage> frmImages;
+        public List<FrmImage> frmImagesList;
 
         public FrmPrincipal()
         {
@@ -35,7 +36,10 @@ namespace FloatImages
             ghk.Register();
 
             imageList = new List<string>();
-            frmImages = new List<FrmImage>();
+            frmImagesList = new List<FrmImage>();
+#if DEBUG
+            lblInfo.Visible = true;
+#endif
         }
 
         private void HandleHotkey()
@@ -68,7 +72,7 @@ namespace FloatImages
 
                     //variables to control main close form action.
                     imageList.Add(imgPath);
-                    frmImages.Add(img);
+                    frmImagesList.Add(img);
 
                     //update info label
                     lblStatus.Text = string.Format("Total de imagens abertas: {0}", ++totalOpenedImages);
@@ -80,13 +84,7 @@ namespace FloatImages
 
         private void FrmPrincipal_FormClosing(object sender, FormClosingEventArgs e)
         {
-            //This clone is needed because on every close form call, the FrmImage instance remove itself from imageList.
-            //If we don't do this, ever one form won't be closed.            
-            var cloneImageList = new List<FrmImage>();
-            cloneImageList.AddRange(frmImages);
-
-            cloneImageList.ForEach(frm => frm.Close());
-            imageList.ForEach(image => File.Delete(image));
+            CloseAllImages(sender, e);
         }
 
         #region Methods to handle Windows HotKeys
@@ -126,7 +124,35 @@ namespace FloatImages
 
         private void ckbShowImagesTaskbar_CheckedChanged(object sender, EventArgs e)
         {
-            frmImages.ForEach(frm => frm.ShowInTaskbar = (sender as CheckBox).Checked);
+            frmImagesList.ForEach(frm => frm.ShowInTaskbar = (sender as CheckBox).Checked);
+        }
+
+        private void lblStatus_TextChanged(object sender, EventArgs e)
+        {
+            //Erase the image of recent closed form
+            //if (File.Exists(imgPath))
+            //    File.Delete(imgPath);
+        }
+
+        /// <summary>
+        /// Close all images generated and erase them from disk.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CloseAllImages(object sender, EventArgs e)
+        {
+            //This clone is needed because on every close form call, the FrmImage instance remove itself from imageList.
+            //If we don't do this, ever one form won't be closed.            
+            var cloneImageList = new List<FrmImage>();
+            cloneImageList.AddRange(frmImagesList);
+
+            cloneImageList.ForEach(frm => frm.Close());
+            imageList.ForEach(image => File.Delete(image));
+        }
+
+        private void tsExit_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

@@ -49,20 +49,25 @@ namespace FloatImages
 
         private void FrmImage_FormClosing(object sender, FormClosingEventArgs e)
         {
+            mainForm.imgPath = ownPath;
+
             imgContainer = null;       
 
             //update main form label status
             mainForm.lblStatus.Text = string.Format("Total de imagens abertas: {0}", --mainForm.totalOpenedImages);
 
             //Remove itself from closing control main form list
-            mainForm.frmImages.Remove(this);
+            mainForm.frmImagesList.Remove(this);
         }
 
         private void FrmImage_KeyDown(object sender, KeyEventArgs e)
         {
             //Copy the current image to clipboard
-            if (e.KeyCode == Keys.C && e.Control)           
-                Clipboard.SetImage(imgContainer.Image);            
+            if (e.KeyCode == Keys.C && e.Control)
+                Clipboard.SetImage(imgContainer.Image);
+            else
+            if (e.KeyCode == Keys.Escape)
+                Close();
         }
     }
 }

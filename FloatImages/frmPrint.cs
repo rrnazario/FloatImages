@@ -55,7 +55,10 @@ namespace FloatImages
             if (e.Button == MouseButtons.Left)
             {
                 mRect = new Rectangle(mRect.Left, mRect.Top, e.X - mRect.Left, e.Y - mRect.Top);
-                this.Invalidate();
+
+                ownPrincipal.lblInfo.Text = string.Format("e.X = {0}, e.Y = {1}, init.X = {2}, init.Y = {3}", e.X, e.Y, init.X, init.Y);
+
+                Invalidate();
             }
         }
 
