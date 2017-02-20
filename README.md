@@ -1,7 +1,7 @@
 # FloatImages
 A crazy screenshot handler. Project developed in C# Windows Forms.
 
-# Hot to use:
+# How to use:
 
 Execute, press ALT + SHIFT keys and select a rectangle on any screen connected on PC. After it, a new window will be showed with this selected image.
 
