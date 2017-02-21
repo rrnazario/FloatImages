@@ -54,7 +54,7 @@ namespace FloatImages
             imgContainer = null;       
 
             //update main form label status
-            mainForm.lblStatus.Text = string.Format("Total de imagens abertas: {0}", --mainForm.totalOpenedImages);
+            mainForm.lblStatus.Text = string.Format("Openned images: {0}", --mainForm.totalOpenedImages);
 
             //Remove itself from closing control main form list
             mainForm.frmImagesList.Remove(this);

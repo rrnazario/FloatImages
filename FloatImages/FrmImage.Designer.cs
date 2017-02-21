@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmImage));
             this.imgContainer = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.imgContainer)).BeginInit();
             this.SuspendLayout();
@@ -50,8 +51,8 @@
             this.ClientSize = new System.Drawing.Size(332, 321);
             this.Controls.Add(this.imgContainer);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmImage";
-            this.ShowInTaskbar = false;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmImage_FormClosing);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmImage_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.imgContainer)).EndInit();

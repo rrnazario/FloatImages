@@ -46,9 +46,9 @@
             this.lblStatus.Font = new System.Drawing.Font("Arial Black", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblStatus.Location = new System.Drawing.Point(51, 29);
             this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(174, 15);
+            this.lblStatus.Size = new System.Drawing.Size(120, 15);
             this.lblStatus.TabIndex = 0;
-            this.lblStatus.Text = "Total de imagens abertas: 0";
+            this.lblStatus.Text = "Openned images: 0";
             this.lblStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblStatus.TextChanged += new System.EventHandler(this.lblStatus_TextChanged);
             // 
@@ -66,13 +66,13 @@
             this.cmIcon.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsExit});
             this.cmIcon.Name = "cmMain";
-            this.cmIcon.Size = new System.Drawing.Size(153, 48);
+            this.cmIcon.Size = new System.Drawing.Size(93, 26);
             this.cmIcon.Text = "Menu";
             // 
             // tsExit
             // 
             this.tsExit.Name = "tsExit";
-            this.tsExit.Size = new System.Drawing.Size(152, 22);
+            this.tsExit.Size = new System.Drawing.Size(92, 22);
             this.tsExit.Text = "Exit";
             this.tsExit.Click += new System.EventHandler(this.tsExit_Click);
             // 

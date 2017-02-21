@@ -75,7 +75,7 @@ namespace FloatImages
                     frmImagesList.Add(img);
 
                     //update info label
-                    lblStatus.Text = string.Format("Total de imagens abertas: {0}", ++totalOpenedImages);
+                    lblStatus.Text = string.Format("Openned images: {0}", ++totalOpenedImages);
                 }
 
                 frmPrint = null;
@@ -129,9 +129,7 @@ namespace FloatImages
 
         private void lblStatus_TextChanged(object sender, EventArgs e)
         {
-            //Erase the image of recent closed form
-            //if (File.Exists(imgPath))
-            //    File.Delete(imgPath);
+            ntfIcon.Text = string.Concat(Application.ProductName, " - ", lblStatus.Text);
         }
 
         /// <summary>
@@ -141,7 +139,7 @@ namespace FloatImages
         /// <param name="e"></param>
         private void CloseAllImages(object sender, EventArgs e)
         {
-            //This clone is needed because on every close form call, the FrmImage instance remove itself from imageList.
+            //This clone is needed because on every close form method call, the FrmImage instance remove itself from imageList.
             //If we don't do this, ever one form won't be closed.            
             var cloneImageList = new List<FrmImage>();
             cloneImageList.AddRange(frmImagesList);
