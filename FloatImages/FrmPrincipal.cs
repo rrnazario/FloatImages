@@ -6,6 +6,7 @@ using System.Drawing.Imaging;
 using System.Collections.Generic;
 using System.IO;
 using System.Configuration;
+using System.Linq;
 
 namespace FloatImages
 {
@@ -25,6 +26,8 @@ namespace FloatImages
 
         public List<FrmImage> frmImagesList;
 
+
+
         public FrmPrincipal()
         {
             InitializeComponent();
@@ -40,6 +43,35 @@ namespace FloatImages
 #if DEBUG
             lblInfo.Visible = true;
 #endif
+
+            var minutesInterval = 1;
+            var MinutesToMilliseconds = (int)(new TimeSpan(0, minutesInterval, 0)).TotalMilliseconds;
+
+            var timer = new System.Timers.Timer(MinutesToMilliseconds);
+
+            timer.Elapsed += (s, ev) => EraseDeadImages();
+            timer.Start();
+        }
+
+        /// <summary>
+        /// Remove images that user no longer uses.
+        /// </summary>
+        private void EraseDeadImages()
+        {
+            var cloneImageList = new List<string>();
+            cloneImageList.AddRange(imageList);
+
+            frmImagesList.ForEach(frmImg => 
+            {
+                cloneImageList.Remove(frmImg.ownPath);                
+            });
+
+            cloneImageList.ForEach( img => 
+            {
+                File.Delete(img);
+
+                imageList.Remove(img);
+            });
         }
 
         private void HandleHotkey()
@@ -58,8 +90,8 @@ namespace FloatImages
                             g.CopyFromScreen(pointImage.Value, Point.Empty, rectImage.Value.Size);
                         }
 
-                        imgPath = string.Concat(DateTime.Now.ToString("ddMMyyyyhhmmss"), ".jpg");
-                        bitmap.Save(imgPath, ImageFormat.Jpeg);
+                        imgPath = string.Concat(DateTime.Now.ToString("ddMMyyyyhhmmss"), ".bmp");
+                        bitmap.Save(imgPath, ImageFormat.Bmp);
                     }
                 }
                 else imgPath = string.Empty;
@@ -92,6 +124,7 @@ namespace FloatImages
         {
             if (m.Msg == Constants.WM_HOTKEY_MSG_ID)
                 HandleHotkey();
+
             base.WndProc(ref m);
         }
 

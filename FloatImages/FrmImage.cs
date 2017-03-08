@@ -21,7 +21,7 @@ namespace FloatImages
         /// <summary>
         /// Path of current image.
         /// </summary>
-        string ownPath;
+        public string ownPath;
 
         public FrmImage()
         {
@@ -57,7 +57,7 @@ namespace FloatImages
             mainForm.lblStatus.Text = string.Format("Openned images: {0}", --mainForm.totalOpenedImages);
 
             //Remove itself from closing control main form list
-            mainForm.frmImagesList.Remove(this);
+            mainForm.frmImagesList.Remove(this);            
         }
 
         private void FrmImage_KeyDown(object sender, KeyEventArgs e)
