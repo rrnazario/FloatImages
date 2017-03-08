@@ -53,27 +53,6 @@ namespace FloatImages
             timer.Start();
         }
 
-        /// <summary>
-        /// Remove images that user no longer uses.
-        /// </summary>
-        private void EraseDeadImages()
-        {
-            var cloneImageList = new List<string>();
-            cloneImageList.AddRange(imageList);
-
-            frmImagesList.ForEach(frmImg => 
-            {
-                cloneImageList.Remove(frmImg.ownPath);                
-            });
-
-            cloneImageList.ForEach( img => 
-            {
-                File.Delete(img);
-
-                imageList.Remove(img);
-            });
-        }
-
         private void HandleHotkey()
         {
             if (frmPrint == null)
@@ -185,5 +164,29 @@ namespace FloatImages
         {
             Close();
         }
+
+        #region Monitoring
+        /// <summary>
+        /// Remove images that user no longer uses.
+        /// </summary>
+        private void EraseDeadImages()
+        {
+            //do a copy of original list do handle it.
+            var cloneImageList = new List<string>();
+            cloneImageList.AddRange(imageList);
+
+            //check whether the image is still used. If it is, remove from delete list.
+            frmImagesList.ForEach(frmImg => cloneImageList.Remove(frmImg.ownPath));
+
+            //Delete images no longer used.
+            cloneImageList.ForEach(img =>
+            {
+                File.Delete(img);
+                imageList.Remove(img);
+            });
+        }
+
+        #endregion
+
     }
 }
