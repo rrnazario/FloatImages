@@ -28,9 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmImage));
             this.imgContainer = new System.Windows.Forms.PictureBox();
+            this.ctxImgForm = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.setFormTitleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.imgContainer)).BeginInit();
+            this.ctxImgForm.SuspendLayout();
             this.SuspendLayout();
             // 
             // imgContainer
@@ -43,6 +47,21 @@
             this.imgContainer.Size = new System.Drawing.Size(333, 320);
             this.imgContainer.TabIndex = 0;
             this.imgContainer.TabStop = false;
+            this.imgContainer.MouseClick += new System.Windows.Forms.MouseEventHandler(this.imgContainer_MouseClick);
+            // 
+            // ctxImgForm
+            // 
+            this.ctxImgForm.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.setFormTitleToolStripMenuItem});
+            this.ctxImgForm.Name = "ctxImgForm";
+            this.ctxImgForm.Size = new System.Drawing.Size(153, 48);
+            // 
+            // setFormTitleToolStripMenuItem
+            // 
+            this.setFormTitleToolStripMenuItem.Name = "setFormTitleToolStripMenuItem";
+            this.setFormTitleToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.setFormTitleToolStripMenuItem.Text = "Set form title...";
+            this.setFormTitleToolStripMenuItem.Click += new System.EventHandler(this.setFormTitleToolStripMenuItem_Click_1);
             // 
             // FrmImage
             // 
@@ -56,6 +75,7 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmImage_FormClosing);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmImage_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.imgContainer)).EndInit();
+            this.ctxImgForm.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -63,5 +83,7 @@
         #endregion
 
         private System.Windows.Forms.PictureBox imgContainer;
+        private System.Windows.Forms.ContextMenuStrip ctxImgForm;
+        private System.Windows.Forms.ToolStripMenuItem setFormTitleToolStripMenuItem;
     }
 }

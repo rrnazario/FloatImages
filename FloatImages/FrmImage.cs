@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.VisualBasic;
 
 namespace FloatImages
 {
@@ -68,6 +69,18 @@ namespace FloatImages
             else
             if (e.KeyCode == Keys.Escape)
                 Close();
+        }
+
+
+        private void imgContainer_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+                ctxImgForm.Show(this, e.X, e.Y);
+        }
+
+        private void setFormTitleToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            Text = Interaction.InputBox("Type the new form name:", "Set form title", Text, Top, Left);
         }
     }
 }
