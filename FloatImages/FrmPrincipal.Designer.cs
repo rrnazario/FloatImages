@@ -1,4 +1,6 @@
-﻿namespace FloatImages
+﻿using System.Windows.Forms;
+
+namespace FloatImages
 {
     partial class FrmPrincipal
     {
@@ -37,6 +39,7 @@
             this.ckbShowImagesTaskbar = new System.Windows.Forms.CheckBox();
             this.lblInfo = new System.Windows.Forms.Label();
             this.btnCloseAllImages = new System.Windows.Forms.Button();
+            this.ckbForceTitle = new System.Windows.Forms.CheckBox();
             this.cmIcon.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -44,7 +47,7 @@
             // 
             this.lblStatus.AutoSize = true;
             this.lblStatus.Font = new System.Drawing.Font("Arial Black", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStatus.Location = new System.Drawing.Point(51, 29);
+            this.lblStatus.Location = new System.Drawing.Point(56, 16);
             this.lblStatus.Name = "lblStatus";
             this.lblStatus.Size = new System.Drawing.Size(120, 15);
             this.lblStatus.TabIndex = 0;
@@ -57,7 +60,7 @@
             this.ntfIcon.BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             this.ntfIcon.ContextMenuStrip = this.cmIcon;
             this.ntfIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("ntfIcon.Icon")));
-            this.ntfIcon.Text = "FloatImages 0.1";
+            this.ntfIcon.Text = Application.ProductName;
             this.ntfIcon.Visible = true;
             this.ntfIcon.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.ntfIcon_MouseDoubleClick);
             // 
@@ -81,18 +84,18 @@
             this.ckbShowImagesTaskbar.AutoSize = true;
             this.ckbShowImagesTaskbar.Checked = true;
             this.ckbShowImagesTaskbar.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.ckbShowImagesTaskbar.Location = new System.Drawing.Point(55, 65);
+            this.ckbShowImagesTaskbar.Location = new System.Drawing.Point(12, 50);
             this.ckbShowImagesTaskbar.Name = "ckbShowImagesTaskbar";
-            this.ckbShowImagesTaskbar.Size = new System.Drawing.Size(169, 17);
+            this.ckbShowImagesTaskbar.Size = new System.Drawing.Size(165, 17);
             this.ckbShowImagesTaskbar.TabIndex = 1;
-            this.ckbShowImagesTaskbar.Text = "Show image icons on Taskbar";
+            this.ckbShowImagesTaskbar.Text = "Show image icons on taskbar";
             this.ckbShowImagesTaskbar.UseVisualStyleBackColor = true;
             this.ckbShowImagesTaskbar.CheckedChanged += new System.EventHandler(this.ckbShowImagesTaskbar_CheckedChanged);
             // 
             // lblInfo
             // 
             this.lblInfo.AutoSize = true;
-            this.lblInfo.Location = new System.Drawing.Point(51, 9);
+            this.lblInfo.Location = new System.Drawing.Point(8, 2);
             this.lblInfo.Name = "lblInfo";
             this.lblInfo.Size = new System.Drawing.Size(14, 13);
             this.lblInfo.TabIndex = 2;
@@ -101,7 +104,7 @@
             // 
             // btnCloseAllImages
             // 
-            this.btnCloseAllImages.Location = new System.Drawing.Point(54, 105);
+            this.btnCloseAllImages.Location = new System.Drawing.Point(30, 109);
             this.btnCloseAllImages.Name = "btnCloseAllImages";
             this.btnCloseAllImages.Size = new System.Drawing.Size(168, 23);
             this.btnCloseAllImages.TabIndex = 3;
@@ -109,11 +112,22 @@
             this.btnCloseAllImages.UseVisualStyleBackColor = true;
             this.btnCloseAllImages.Click += new System.EventHandler(this.CloseAllImages);
             // 
+            // ckbForceTitle
+            // 
+            this.ckbForceTitle.AutoSize = true;
+            this.ckbForceTitle.Location = new System.Drawing.Point(12, 74);
+            this.ckbForceTitle.Name = "ckbForceTitle";
+            this.ckbForceTitle.Size = new System.Drawing.Size(212, 17);
+            this.ckbForceTitle.TabIndex = 4;
+            this.ckbForceTitle.Text = "On create an image, force to type a title";
+            this.ckbForceTitle.UseVisualStyleBackColor = true;
+            // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 138);
+            this.ClientSize = new System.Drawing.Size(229, 138);
+            this.Controls.Add(this.ckbForceTitle);
             this.Controls.Add(this.btnCloseAllImages);
             this.Controls.Add(this.lblInfo);
             this.Controls.Add(this.ckbShowImagesTaskbar);
@@ -123,7 +137,7 @@
             this.MaximizeBox = false;
             this.Name = "FrmPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FloatImages 0.1";
+            this.Text = Application.ProductName;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmPrincipal_FormClosing);
             this.Load += new System.EventHandler(this.FrmPrincipal_Load);
             this.Resize += new System.EventHandler(this.FrmPrincipal_Resize);
@@ -142,6 +156,7 @@
         private System.Windows.Forms.Button btnCloseAllImages;
         private System.Windows.Forms.ContextMenuStrip cmIcon;
         private System.Windows.Forms.ToolStripMenuItem tsExit;
+        public System.Windows.Forms.CheckBox ckbForceTitle;
     }
 }
 
