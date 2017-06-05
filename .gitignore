@@ -1,0 +1,25 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/FloatImages/obj/Debug/TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs
+/FloatImages/obj/Debug/TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs
+/FloatImages/obj/Debug/TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs
+/FloatImages/obj/Debug/FloatImages.Properties.Resources.resources
+/FloatImages/obj/Debug/FloatImages.pdb
+/FloatImages/obj/Debug/FloatImages.FrmPrint.resources
+/FloatImages/obj/Debug/FloatImages.FrmPrincipal.resources
+/FloatImages/obj/Debug/FloatImages.FrmImage.resources
+/FloatImages/obj/Debug/FloatImages.exe
+/FloatImages/obj/Debug/FloatImages.csprojResolveAssemblyReference.cache
+/FloatImages/obj/Debug/FloatImages.csproj.ResolveComReference.cache
+/FloatImages/obj/Debug/FloatImages.csproj.GenerateResource.Cache
+/FloatImages/obj/Debug/FloatImages.csproj.FileListAbsolute.txt
+/FloatImages/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+/FloatImages/obj/Debug/CoreCompileInputs.cache
+/FloatImages/bin/Debug/FloatImages.pdb
+/FloatImages/bin/Debug/FloatImages.exe.config
+/FloatImages/bin/Debug/FloatImages.exe
+/FloatImages/bin/Debug/FloatImages.pdb
+/FloatImages/bin/Debug/FloatImages.exe.config
+/FloatImages/bin/Debug/FloatImages.exe
