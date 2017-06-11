@@ -69,6 +69,14 @@ namespace FloatImages
             else
             if (e.KeyCode == Keys.Escape)
                 Close();
+            else
+            if(e.KeyCode == Keys.S && e.Control)
+            {
+                var dr = svd.ShowDialog();
+
+                if (dr == DialogResult.OK)
+                    imgContainer.Image.Save(svd.FileName);
+            }
         }
 
         private void imgContainer_MouseClick(object sender, MouseEventArgs e)

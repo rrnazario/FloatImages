@@ -33,6 +33,7 @@
             this.imgContainer = new System.Windows.Forms.PictureBox();
             this.ctxImgForm = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.setFormTitleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.svd = new System.Windows.Forms.SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.imgContainer)).BeginInit();
             this.ctxImgForm.SuspendLayout();
             this.SuspendLayout();
@@ -54,14 +55,20 @@
             this.ctxImgForm.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.setFormTitleToolStripMenuItem});
             this.ctxImgForm.Name = "ctxImgForm";
-            this.ctxImgForm.Size = new System.Drawing.Size(153, 48);
+            this.ctxImgForm.Size = new System.Drawing.Size(152, 26);
             // 
             // setFormTitleToolStripMenuItem
             // 
             this.setFormTitleToolStripMenuItem.Name = "setFormTitleToolStripMenuItem";
-            this.setFormTitleToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.setFormTitleToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.setFormTitleToolStripMenuItem.Text = "Set form title...";
             this.setFormTitleToolStripMenuItem.Click += new System.EventHandler(this.setFormTitleToolStripMenuItem_Click_1);
+            // 
+            // svd
+            // 
+            this.svd.DefaultExt = "bmp";
+            this.svd.Filter = "bmp images|*.bmp";
+            this.svd.Title = "Save current image.";
             // 
             // FrmImage
             // 
@@ -85,5 +92,6 @@
         private System.Windows.Forms.PictureBox imgContainer;
         private System.Windows.Forms.ContextMenuStrip ctxImgForm;
         private System.Windows.Forms.ToolStripMenuItem setFormTitleToolStripMenuItem;
+        private System.Windows.Forms.SaveFileDialog svd;
     }
 }
