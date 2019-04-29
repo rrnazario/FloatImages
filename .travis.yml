@@ -1,0 +1,6 @@
+language: csharp
+solution: FloatImages.sln
+install:
+  - nuget restore FloatImages.sln
+script:
+  - msbuild /p:Configuration=Release FloatImages.sln
