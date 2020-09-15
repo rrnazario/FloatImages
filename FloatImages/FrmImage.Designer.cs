@@ -62,7 +62,7 @@
             this.setFormTitleToolStripMenuItem.Name = "setFormTitleToolStripMenuItem";
             this.setFormTitleToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.setFormTitleToolStripMenuItem.Text = "Set form title...";
-            this.setFormTitleToolStripMenuItem.Click += new System.EventHandler(this.setFormTitleToolStripMenuItem_Click_1);
+            this.setFormTitleToolStripMenuItem.Click += new System.EventHandler(this.setFormTitle);
             // 
             // svd
             // 

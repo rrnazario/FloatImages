@@ -85,7 +85,7 @@ namespace FloatImages
                 ctxImgForm.Show(this, e.X, e.Y);
         }
 
-        public void setFormTitleToolStripMenuItem_Click_1(object sender, EventArgs e)
+        public void setFormTitle(object sender, EventArgs e)
         {
             Text = Interaction.InputBox("Type the new form name:", "Set form title", Text, Top, Left);
         }

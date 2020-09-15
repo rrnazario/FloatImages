@@ -1,15 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Drawing.Drawing2D;
-using System.Drawing.Imaging;
-using System.Threading;
 
 namespace FloatImages
 {
@@ -18,6 +10,8 @@ namespace FloatImages
         Rectangle mRect;
         Point init;
         FrmPrincipal ownPrincipal;
+
+        public bool EscPressed = false;
 
         public FrmPrint(FrmPrincipal frmPrincipal)
         {
@@ -54,9 +48,18 @@ namespace FloatImages
         {
             if (e.Button == MouseButtons.Left)
             {
-                mRect = new Rectangle(mRect.Left, mRect.Top, e.X - mRect.Left, e.Y - mRect.Top);
+                var width = e.X - init.X;
+                var height = e.Y - init.Y;
+                mRect = new Rectangle(width >= 0 ? init.X : e.X, height >= 0 ? init.Y : e.Y, Math.Abs(width), Math.Abs(height));
 
-                ownPrincipal.lblInfo.Text = string.Format("e.X = {0}, e.Y = {1}, init.X = {2}, init.Y = {3}", e.X, e.Y, init.X, init.Y);
+                ownPrincipal.lblInfo.Text = $"e.X = {e.X}, " +
+                                            $"e.Y = {e.Y}, " +
+                                            $"init.X = {init.X}, " +
+                                            $"init.Y = {init.Y}, " +
+                                            $"mRect.Left = {mRect.Left}, " +
+                                            $"mRect.Top = {mRect.Top}, " +
+                                            $"width {width}, " +
+                                            $"height: {height}";
 
                 Invalidate();
             }
@@ -74,6 +77,7 @@ namespace FloatImages
 
         private void frmPrint_MouseUp(object sender, MouseEventArgs e)
         {
+            ownPrincipal.pointTarget = new Point(e.X, e.Y);
             Close();
         }
 
@@ -81,6 +85,7 @@ namespace FloatImages
         {
             if (e.KeyCode == Keys.Escape)
             {
+                EscPressed = true;
                 ownPrincipal.imgPath = string.Empty;
                 Close();
             }   
@@ -91,12 +96,13 @@ namespace FloatImages
             if (mRect.Width != 0 && mRect.Height != 0)
             {
                 ownPrincipal.rectImage = mRect;
-                ownPrincipal.pointImage = init;
+                ownPrincipal.pointSource = init;                
             }
             else
             {
                 ownPrincipal.rectImage = null;
-                ownPrincipal.pointImage = null;
+                ownPrincipal.pointSource = null;
+                ownPrincipal.pointTarget     = null;
             }
         }
     }    

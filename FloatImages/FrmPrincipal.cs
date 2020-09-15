@@ -17,7 +17,7 @@ namespace FloatImages
 
         public string imgPath;
         public Rectangle? rectImage;
-        public Point? pointImage;
+        public Point? pointSource, pointTarget;
         public int totalOpenedImages = 0;
 
         private NotifyIcon mynotifyicon = new NotifyIcon();
@@ -60,14 +60,16 @@ namespace FloatImages
                 frmPrint = new FrmPrint(this);
                 frmPrint.ShowDialog();
 
-                if (rectImage != null && pointImage != null)
+                if (rectImage != null && pointSource != null && pointTarget != null && !frmPrint.EscPressed)
                 {
-                    using (Bitmap bitmap = new Bitmap(Math.Abs(rectImage.Value.Width), Math.Abs(rectImage.Value.Height)))
+                    using (Bitmap bitmap = new Bitmap(rectImage.Value.Width, rectImage.Value.Height))
                     {
-                        using (Graphics g = Graphics.FromImage(bitmap))
-                        {
-                            g.CopyFromScreen(pointImage.Value, Point.Empty, rectImage.Value.Size);
-                        }
+                        //Obtain the min origin to capture the screen.
+                        var X = new int[] { pointTarget.Value.X , pointSource.Value.X }.Min();
+                        var Y = new int[] { pointTarget.Value.Y , pointSource.Value.Y }.Min();
+
+                        using (Graphics g = Graphics.FromImage(bitmap))                        
+                            g.CopyFromScreen(X, Y, Point.Empty.X, Point.Empty.Y, rectImage.Value.Size, CopyPixelOperation.SourceCopy);                        
 
                         imgPath = string.Concat(DateTime.Now.ToString("ddMMyyyyhhmmss"), ".bmp");
                         bitmap.Save(imgPath, ImageFormat.Bmp);
@@ -78,12 +80,12 @@ namespace FloatImages
                 if (!string.IsNullOrEmpty(imgPath))
                 {
                     //show image form.
-                    var img = new FrmImage(imgPath, this, pointImage.Value);
+                    var img = new FrmImage(imgPath, this, pointSource.Value);
                     img.Show();
 
                     //Forces the current image form to have a title, provided by user.
                     if (ckbForceTitle.Checked)
-                        img.setFormTitleToolStripMenuItem_Click_1(null, null);
+                        img.setFormTitle(null, null);
 
                     //variables to control main close form action.
                     imageList.Add(imgPath);

@@ -60,7 +60,7 @@ namespace FloatImages
             this.ntfIcon.BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             this.ntfIcon.ContextMenuStrip = this.cmIcon;
             this.ntfIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("ntfIcon.Icon")));
-            this.ntfIcon.Text = Application.ProductName;
+            this.ntfIcon.Text = "Microsoft® Visual Studio®";
             this.ntfIcon.Visible = true;
             this.ntfIcon.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.ntfIcon_MouseDoubleClick);
             // 
@@ -69,13 +69,13 @@ namespace FloatImages
             this.cmIcon.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsExit});
             this.cmIcon.Name = "cmMain";
-            this.cmIcon.Size = new System.Drawing.Size(93, 26);
+            this.cmIcon.Size = new System.Drawing.Size(94, 26);
             this.cmIcon.Text = "Menu";
             // 
             // tsExit
             // 
             this.tsExit.Name = "tsExit";
-            this.tsExit.Size = new System.Drawing.Size(92, 22);
+            this.tsExit.Size = new System.Drawing.Size(93, 22);
             this.tsExit.Text = "Exit";
             this.tsExit.Click += new System.EventHandler(this.tsExit_Click);
             // 
@@ -126,7 +126,7 @@ namespace FloatImages
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(229, 138);
+            this.ClientSize = new System.Drawing.Size(229, 140);
             this.Controls.Add(this.ckbForceTitle);
             this.Controls.Add(this.btnCloseAllImages);
             this.Controls.Add(this.lblInfo);
@@ -137,7 +137,7 @@ namespace FloatImages
             this.MaximizeBox = false;
             this.Name = "FrmPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = Application.ProductName;
+            this.Text = "Float Images";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmPrincipal_FormClosing);
             this.Load += new System.EventHandler(this.FrmPrincipal_Load);
             this.Resize += new System.EventHandler(this.FrmPrincipal_Resize);
