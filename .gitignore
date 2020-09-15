@@ -26,3 +26,10 @@
 /FloatImages/obj/Debug
 /FloatImages/bin/Debug
 /.vs/FloatImages/v16
+/FloatImages/bin/Release/*
+/FloatImages/obj/Release
+/FloatImages/bin/Release/FloatImages.zip
+/FloatImages/bin/Release/FloatImages.pdb
+/FloatImages/bin/Release/FloatImages.exe.config
+/FloatImages/bin/Release/FloatImages.exe
+/FloatImages/FloatImages.csproj.user

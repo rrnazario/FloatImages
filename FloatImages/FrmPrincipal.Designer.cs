@@ -60,7 +60,7 @@ namespace FloatImages
             this.ntfIcon.BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             this.ntfIcon.ContextMenuStrip = this.cmIcon;
             this.ntfIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("ntfIcon.Icon")));
-            this.ntfIcon.Text = "Microsoft® Visual Studio®";
+            this.ntfIcon.Text = "Float Images";
             this.ntfIcon.Visible = true;
             this.ntfIcon.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.ntfIcon_MouseDoubleClick);
             // 

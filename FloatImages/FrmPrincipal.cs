@@ -71,7 +71,7 @@ namespace FloatImages
                         using (Graphics g = Graphics.FromImage(bitmap))                        
                             g.CopyFromScreen(X, Y, Point.Empty.X, Point.Empty.Y, rectImage.Value.Size, CopyPixelOperation.SourceCopy);                        
 
-                        imgPath = string.Concat(DateTime.Now.ToString("ddMMyyyyhhmmss"), ".bmp");
+                        imgPath = string.Concat(DateTime.Now.ToString("ddMMyyyyhhmmssfff"), ".bmp");
                         bitmap.Save(imgPath, ImageFormat.Bmp);
                     }
                 }
